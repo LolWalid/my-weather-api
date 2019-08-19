@@ -3,5 +3,9 @@ Rails.application.routes.draw do
                      controllers: { sessions: 'sessions' },
                      defaults: { format: :json }
 
-  resource :users, only: %w[create update show]
+  resource :users, only: %w[create] do
+    patch :favorite_city
+  end
+
+  get '/weather', to: 'weather#index'
 end

@@ -22,8 +22,8 @@ Devise.setup do |config|
 
   config.jwt do |jwt|
     jwt.secret = 'DEVISE_JWT_SECRET_KEY' # ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.expiration_time = 365 * 24 * 3600
   end
-
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

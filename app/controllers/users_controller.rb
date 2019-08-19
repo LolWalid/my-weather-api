@@ -11,17 +11,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    #
-  end
-
-  def show
-    render json: { id: current_user.id }
+  def favorite_city
+    if current_user.update(favorite_city: params[:favorite_city])
+      render json: current_user
+    else
+      render json: { messages: current_user.errors }, status: 422
+    end
   end
 
   private
 
   def user_params
-    params.fetch(:user, {}).permit(:email, :password, :favorite_city)
+    params.fetch(:user, {}).permit(:email, :password)
   end
 end

@@ -1,0 +1,5 @@
+default: &default
+  OPEN_WEATHER_APPID: "CHANGE_ME"
+
+development:
+  <<: *default
